@@ -1,3 +1,5 @@
+import re
+from unicodedata import category
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User
 from django.shortcuts import render,redirect
@@ -58,9 +60,21 @@ def all_bikes(request):
 def companiesview(request,slug):
     # if(company.objects.filter(slug=slug)):
     obj=bikes.objects.filter(company__slug=slug,available=True)
-    company_name=company.objects.filter(slug=slug).first()
+    company_name=company.objects.filter(slug=slug).first() #for display company name on heading
     d={'bikes':obj,'company_name':company_name}
     return render(request,"companies_view.html",d)
     # else:
     #     messages.info(request,'No such compamies found')
     #     return redirect('companies')
+def bike_view(request,cat_slug,prod_slug):
+    if(category.objects.filter(slug=cat_slug)):
+        if(bikes.objects.filter(slug=prod_slug,available=True)):
+            obj=bikes.objects.filter(slug=prod_slug,available=True)
+            context={'bikes':obj}
+        else:
+            messages.error(request,'No such bikes found')
+            return redirect('companiesview')
+    else:
+        messages.error(request,'no category found')
+        return redirect('companiesview')
+    return render(request,'detail.html',context)
