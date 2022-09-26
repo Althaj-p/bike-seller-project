@@ -1,0 +1,33 @@
+{% load static %}
+{% include 'base.html' %}
+{% block body %}
+<div class="py-3 bg-primary">
+    <div class="container">
+        <a class="text-white"style="text-decoration:none" href="{% url 'index' %}">Home /</a>
+        <a class="text-white"style="text-decoration:none" href="{% url 'companies' %}">companies </a>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h1 class="mt-2">Available Companies</h1><hr>
+            <div class="row">
+                {% for i in companies %}
+                <div class="col-md-3">
+                    <div class="card">
+                        <a href="{% url 'companiesview' i.slug %}">
+                        <div class="card-body">
+                            <div class="category-image">
+                                <img src="{{i.logo.url}}"alt="category image"class="w-100"/>
+                            </div>
+                            <h4 class="text-center mt-2">{{i.name}}</h4>
+                        </div>
+                        </a>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,66 @@
+{% include 'base.html' %}
+{% block body %}
+<body>
+    <form method="post"action="register" style="margin-top: 100px;">
+        {% csrf_token %}
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <label>first name</label>
+                    <input type="text"class="form-control" placeholder="Enter your first name here" name="fname"required>
+                </div>
+                <div class="col-md-6">
+                    <label>Last Name</label>
+                    <input type="text" placeholder="Enter your last name here" class="form-control" name="lname"required>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <label>Username</label>
+                    <input type="text"class="form-control" placeholder="Enter your user name here" name="uname"required>
+                </div>
+                <div class="col-md-6">
+                    <label>Location</label>
+                    <input type="text" placeholder="Enter your Location here" class="form-control"name="location"required>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <label>Email</label>
+                    <input type="email"class="form-control" placeholder="Enter your email here" name="email"required>
+                </div>
+                <div class="col-md-6">
+                    <label>Mobile Number</label>
+                    <input type="number" placeholder="Enter  mobile number here" class="form-control" name="mobile"required>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <label>password</label>
+                    <input type="password"class="form-control" placeholder="Enter your password here" name="pwd"required>
+                </div>
+                <div class="col-md-6">
+                    <label>Confirm password</label>
+                    <input type="password" placeholder="confirm your password here" class="form-control" name="cpwd"required>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary mt-4">REGISTER</button>
+        </div>
+    </form>
+</body>
+{% ifequal error "no" %}
+<script>
+    alert('successfully created account')
+</script>
+{% endifequal %}
+{% ifequal error "yes" %}
+<script>
+    alert('Email already exists')
+</script>
+{% endifequal %}
+{% ifequal error "not" %}
+<script>
+    alert('passwords not match')
+</script>
+{% endifequal %}
+{% endblock %}
