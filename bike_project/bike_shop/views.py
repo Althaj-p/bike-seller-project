@@ -5,6 +5,7 @@ from django.contrib.auth.models import User
 from django.shortcuts import render,redirect
 from . models import *
 from django.contrib import messages
+import requests
 
 # Create your views here.
 def user_login(request):
@@ -67,9 +68,9 @@ def companiesview(request,slug):
     #     messages.info(request,'No such compamies found')
     #     return redirect('companies')
 def bike_view(request,cat_slug,prod_slug):
-    if(category.objects.filter(slug=cat_slug)):
+    if(company.objects.filter(slug=cat_slug)):
         if(bikes.objects.filter(slug=prod_slug,available=True)):
-            obj=bikes.objects.filter(slug=prod_slug,available=True)
+            obj=bikes.objects.filter(slug=prod_slug,available=True).first()
             context={'bikes':obj}
         else:
             messages.error(request,'No such bikes found')
@@ -78,3 +79,21 @@ def bike_view(request,cat_slug,prod_slug):
         messages.error(request,'no category found')
         return redirect('companiesview')
     return render(request,'detail.html',context)
+def apishow(request):
+
+    url = "https://motorcycle-specs-database.p.rapidapi.com/make/Aprilia/model/Dorsoduro%201200"
+    # url = "https://motorcycle-specs-database.p.rapidapi.com/make/yamaha/model/yfz"
+    # url = "https://motorcycle-specs-database.p.rapidapi.com/model/make-name/Yamaha"
+    headers = {
+	    "X-RapidAPI-Key": "ebdb0737b0mshf5c866d8cfa9872p1cb608jsn6f53bc670c82",
+	    "X-RapidAPI-Host": "motorcycle-specs-database.p.rapidapi.com"
+    }
+
+    data = requests.request("GET", url, headers=headers).json()
+    response=data[0]['articleCompleteInfo']
+
+    # data=response.json()
+    # aa=data['articleCompleteInfo']
+
+    # print(response.text)
+    return render(request,'api.html',{'response':response,'data':data})

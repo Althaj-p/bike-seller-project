@@ -4,3 +4,4 @@ from . models import *
 admin.site.register(reg_tbl)
 admin.site.register(company)
 admin.site.register(bikes)
+admin.site.register(Type)
