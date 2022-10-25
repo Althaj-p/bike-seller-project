@@ -1,0 +1,21 @@
+{% load static %}
+{% include 'admin_navigation.html' %}
+<!-- <body background="{% static 'main7.png' %}"style="background-repeat: no-repeat;background-size:cover"> -->
+<!-- <body style="{% static 'background-image:  url(pic7.png);background-repeat: no-repeat;background-size: cover' %}"> -->
+<div class="container">
+    <div class="row mt-4">
+        <div class="col-md-4 text-center shadow-lg "style="width:100%;height:100px;background-color:green;padding: 10px;"><a style="text-decoration:none"class="text-white" href="{% url 'admin_viewBikes' %}"><h3><span>Total bikes </span> <br>{{bikes.count}}</h3></a></div>
+        <div class="col-md-4"></div>
+        <div class="col-md-4 text-center shadow-lg"style="width: 100%;height:100px;background-color:violet;padding: 10px;"><a style="text-decoration:none"class="text-white" href="{% url 'admin_allCompany' %}"><h3>Total company<br> {{company.count}}</h3></a></div>
+    </div>
+    <div class="row mt-4">
+        <div class="col-md-4 mt-2 text-center shadow-lg "style="width: 100%;height:100px;background-color:red;margin-left:380px;padding: 10px"><a style="text-decoration:none"class="text-white" href="{% url 'admin_allTypes' %}"><h3>Total Types <br>{{type.count}}</h3></a></div> 
+    </div>
+    <div class="row mt-4 text-center">
+        <div class="col-md-4 p-3 shadow-lg"style="width: 100%;height:100px;background-color:blue"><a style="text-decoration:none"class="text-white" href="{% url 'admin_allCustomer' %}"><h3>Total customers<br> {{user.count}}</h3></a></div>
+        <div class="col-md-4"></div>
+        <div class="col-md-4 p-3 shadow-lg"style="width: 100%;height:100px;background-color:orange"><a style="text-decoration:none"class="text-white" href="{% url 'admin_order' %}"><h3>Total orders<br> {{order.count}}</h3></a></div>
+
+    </div>
+</div>
+</body>

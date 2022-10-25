@@ -1,0 +1,24 @@
+{% include 'admin_navigation.html' %}
+<div class="container mt-3">
+    <table class="table border border-secondary shadow-lg">
+        <thead style="color:blueviolet ;font-weight:bold;background-color:yellow;">
+            <tr>
+                <td>Sr no</td>
+                <td>Company Name</td>
+                <td>Image</td>
+                <td>Action</td>
+            </tr>
+        </thead>
+        <tbody >
+            {% for i in data %}
+            <tr>
+                <td>{{forloop.counter}}</td>
+                <td>{{i.name}}</td>
+                <td><img src="{{i.logo.url}}"style="width: 50px;height:50px"></td>
+                <td><a href="{% url 'admin_deleteCompany' i.id %} "class="btn btn-danger btn-sm" onclick="return confirm('Are you sure to delete?')">Delete</a></td>
+
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>

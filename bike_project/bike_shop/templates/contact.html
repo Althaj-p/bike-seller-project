@@ -1,0 +1,45 @@
+{% include 'base.html' %}
+{% load static %}
+<div class="container">
+    {% if messages %}
+    {% for message in messages %}
+    <h3 style="color:green"class="text-center">{{message}}</h3>
+    {% endfor %}
+    {% endif %}
+    <div class="row">
+        <div style="width: 100%;height:400px">
+            <img src="{% static 'contact1.png' %}"style="width: 100%;height:400px">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6 mt-3 p-4" style="background-color: black;">
+            <h3 class="text-white text-center ">contact Information</h3><hr>
+            <p style="color:yellow;"><i class="fa fa-map-marker text-danger"></i>  Location  :  pandikkad,malappuram,kerala,india</p>
+            <p style="color:yellow"><i class="fa fa-envelope text-danger"></i>   Email  :  muhammedalthaj371@gmail.com</p>
+            <p style="color:yellow"><i class="fa fa-mobile text-danger"></i>   Mobile  :7902559371</p>
+            <span style="font-weight:bold ;font-size:30px">
+                <span><a class="text-white"href="https://wa.me/qr/QSMLE36K7U4RL1"> <i class="fa fa-whatsapp pl-3 "></i></a></span>
+                <span><a class="text-white" href="https://twitter.com/muhammed_althaj"> <i class="fa fa-twitter pl-3 "></i></a></span>
+                <span> <a class="text-white"href="https://www.instagram.com/althaj_pkd/"><i class="fa fa-instagram pl-3"></i></a></span>
+                <span><a class="text-white" href="https://www.linkedin.com/in/muhammed-althaj-b04a01212/"><i class="fa fa-linkedin pl-3"></i></a> </span>
+            </span>
+    
+    
+        </div>
+
+        <div class="col-md-6 mt-3 p-4" style="background-color: black;">
+            <h3 class="text-white ">Mail us</h3>
+            <p style="color:yellow">Send your feedbacks or any suggestions about this project</p>
+            <form method="post">
+                {% csrf_token %}
+                <input type="email" name="email"placeholder="Enter Your email here" required class="form-control mt-2">
+                <input type="text" placeholder="Subject"name="subject"class="form-control mt-2" required >
+                <textarea name="message" placeholder="Enter your message here"  class="form-control mt-2" required></textarea>
+                
+                <input class="btn btn-primary mt-2 w-100" type="submit" value="send">
+            </form>
+
+        </div>
+
+    </div>
+</div>

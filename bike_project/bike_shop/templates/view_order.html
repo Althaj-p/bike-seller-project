@@ -1,0 +1,29 @@
+{% include 'base.html' %}
+<table class="container table shadow-lg   border border-secondary">
+    <thead  style="background-color:blue;color:white">
+        <tr>
+            <td>Sr no</td>
+            <td>Name</td>
+            <td>Image</td>
+            <td>Price</td>
+            <td>ordered Date</td>
+            <td>Status</td>
+            <td>Action</td>
+        </tr>
+    </thead>
+   
+    <tbody style="background-color:rgb(234, 255, 0);color:rgb(123, 37, 37)">
+        {% for i in data %}
+        <tr>
+            <td>{{forloop.counter}}</td>
+            <td>{{i.bike.name}}</td>
+            <td><img src="{{i.bike.image.url}}"class=" rounded-circle" style="width:50px ;height:50px"></td>
+            <td>{{i.bike.price}}</td>
+            <td>{{i.date_added}}</td>
+            <td>{{i.status}}</td>
+            <td><a href="{% url 'view_detail' i.bike.name  %}" class="btn btn-success btn-sm" > view Detail</a>|<a href="{% url 'delete_order' i.id %}" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure to delete?')"> Delete</a></td>
+        </tr>
+        {% endfor %}
+    </tbody>
+    
+</table>

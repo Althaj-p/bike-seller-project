@@ -1,0 +1,9 @@
+{% include 'admin_navigation.html' %}
+{% load static %}
+<form action="add_company"method="post"enctype="multipart/form-data"class="container">
+    {% csrf_token %}
+    <table>
+    {{form.as_table}}
+    </table>
+    <input type="submit">
+</form>

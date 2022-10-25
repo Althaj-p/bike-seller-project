@@ -1,0 +1,69 @@
+<div class="container">
+    <form method="post"enctype="multipart/form-data">
+        {% csrf_token %}
+        <label><b>company :</b></label>
+        <label>{{data.company.name}}</label><br>
+        <label><b>Type :</b></label>
+        <label>{{data.type.name}}</label><br>
+        <label><b>Name :</b></label>
+        <label>{{data.name}}</label><br>
+        <label><b>price</b></label>
+        <input type="number"value="{{data.price}}"name="price"><br>
+        <label><b>current image</b></label>
+        <img src="{{data.image.url}}"style="width: 50px;height: 50px;">
+        <!-- <label>change image</label> -->
+        <input type="file"name="im"><br>
+        <label><b>slug</b></label>
+        <input type="text"value="{{data.slug}}"name="slug"><br>
+        <label><b>desc</b></label>
+        <input type="text"value="{{data.desc}}"name="desc"><br>
+        <label><b>available</b></label>
+        <input type="text"value="{{data.available}}"name="aval"><br>
+        <label><b>fuel</b></label>
+        <input type="text"value="{{data.fuel}}"name="fuel"><br>
+        <label><b>mileage</b></label>
+        <input type="text"value="{{data.mileage}}"name="mileage"><br>
+        <label><b>Engine</b></label>
+        <input type="text"value="{{data.engine}}"name="engine"><br>
+        <label><b>Torque</b></label>
+        <input type="text"value="{{data.torque}}"name="torque"><br>
+        <label><b>power</b></label>
+        <input type="text"value="{{data.power}}"name="power"><br>
+        <label><b>weight</b></label>
+        <input type="text"value="{{data.weight}}"name="weight"><br>
+        <label><b>fuel_tank</b></label>
+        <input type="text"value="{{data.fuel_tank}}"name="fuel_tank"><br>
+        <label><b>Brakes</b></label>
+        <input type="text"value="{{data.brakes}}"name="brakes"><br>
+        <label><b>fuel_delivery</b></label>
+        <input type="text"value="{{data.fuel_delivery}}"name="fuel_delivery"><br>
+        <label><b>length</b></label>
+        <input type="text"value="{{data.length}}"name="length"><br>
+        <label><b>width</b></label>
+        <input type="text"value="{{data.width}}"name="width"><br>
+        <label><b>height</b></label>
+        <input type="text"value="{{data.height}}"name="height"><br>
+        <label><b>gears</b></label>
+        <input type="text"value="{{data.gears}}"name="gears"><br>
+        <label><b>current image2</b></label>
+        <img src="{{data.image2.url}}"style="width: 50px;height: 50px;">
+        <!-- <label>change image2</label> -->
+        <input type="file"name="i2"><br>
+        <label><b>current image3</b></label>
+        <img src="{{data.image3.url}}"style="width: 50px;height: 50px;">
+        <!-- <label>change image3</label> -->
+        <input type="file"name="i3"><br>
+        <label><b>current image4</b></label>
+        <img src="{{data.image4.url}}"style="width: 50px;height: 50px;">
+        <input type="file"name="i4"><br>
+        <label><b>current image5</b></label>
+        <img src="{{data.image5.url}}"style="width: 50px;height: 50px;">
+        <!-- <label>change image5</label> -->
+        <input type="file"name="i5"><br>
+        <input type="submit">
+
+
+
+
+    </form>
+</div>

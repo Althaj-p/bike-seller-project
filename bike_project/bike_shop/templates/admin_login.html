@@ -1,0 +1,30 @@
+{% include 'base.html' %}
+<div class="container mt-3">
+    <form method="post">
+        {% csrf_token %}
+        <div class="row">
+            <div class="col-md-12">
+                <label><b>Username</b></label>
+                <input type="text"placeholder="Enter your username here"class="form-control"name="uname">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <label><b>Password</b></label>
+                <input type="password"placeholder="Enter your password here"class="form-control"name="pwd">
+            </div>
+        </div>
+        <input type="submit" value="submit"class="btn btn-success mt-3 ">
+    </form>
+</div>
+{% ifequal error "no" %}
+<script>
+    alert("login successful")
+    window.location=('{% url 'admin_home' %}' )
+</script>
+{% endifequal %}
+{% ifequal error "yes" %}
+<script>
+    alert("something went wrong")
+</script>
+{% endifequal %}

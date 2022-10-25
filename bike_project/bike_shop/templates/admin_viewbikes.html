@@ -1,0 +1,32 @@
+{% include 'admin_navigation.html' %}
+<div class="container mt-3">
+    <table class="table border border-secondary shadow-lg">
+        <thead style="color:blueviolet ;font-weight:bold;background-color:yellow;">
+            <tr>
+                <td>Bike Name</td>
+                <td>Image</td>
+                <td>Company</td>
+                <td>Type</td>
+                <td>price</td>
+                <td>Fuel</td>
+                <td>Detail</td>
+                <td>Action</td>
+            </tr>
+        </thead>
+        <tbody >
+            {% for i in data %}
+            <tr>
+                <td> {{i.name}}</td>
+                <td><img src="{{i.image.url}}"style="width: 50px;height: 50px;"></td>
+                <td>{{i.company.name}}</td>
+                <td> {{i.type.name}}</td>
+                <td>{{i.price}}</td>
+                <td>{{i.fuel}}</td>
+                <td><a href="{% url 'admin_bikedetail' i.name %}"class="btn btn-success btn-sm">view detail</a></td>
+                <td><a href="{% url 'admin_editbikes' i.id %} "class="btn btn-dark btn-sm">Edit</a> <a href="{% url 'admin_deleteBike' i.id %} "class="btn btn-danger btn-sm" onclick="return confirm('Are you sure to delete?')">Delete</a></td>
+
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>

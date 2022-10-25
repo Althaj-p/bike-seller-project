@@ -1,0 +1,29 @@
+{% include 'admin_navigation.html' %}
+<div class="container mt-3">
+    <table class="table border border-secondary shadow-lg">
+        <thead style="color:blueviolet ;font-weight:bold;background-color:yellow;">
+            <tr>
+                <td>customer Name</td>
+                <td>Bike Name</td>
+                <td>Email</td>
+                <td>Contact</td>
+                <td>status</td>
+                <td>Detail</td>
+                <td>Action</td>
+            </tr>
+        </thead>
+        <tbody >
+            {% for i in data %}
+            <tr>
+                <td>{{i.user.user.first_name}} {{i.user.user.last_name}}</td>
+                <td>{{i.bike.company.name}} {{i.bike.name}}</td>
+                <td>{{i.user.user.username}}</td>
+                <td>{{i.user.mobile}}</td>
+                <td>{{i.status}}</td>
+                <td><a href="{% url 'admin_orderdetail' i.id %}"class="btn btn-success btn-sm">view detail</a></td>
+                <td><a href="{% url 'change_status' i.id %}"class="btn btn-info btn-sm">Change status</a>|<a href="{% url 'admin_deleteorder' i.id %} "class="btn btn-danger btn-sm" onclick="return confirm('Are you sure to delete?')">Delete</a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>

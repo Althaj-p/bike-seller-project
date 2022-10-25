@@ -1,7 +1,3 @@
-from operator import length_hint
-from symbol import power
-from turtle import width
-from unittest.util import _MAX_LENGTH
 from django.db import models
 from django.contrib.auth.models import User
 
@@ -17,6 +13,7 @@ class company(models.Model):
     name=models.CharField(max_length=50,null=True)
     slug=models.SlugField(max_length=50,null=True)
     logo=models.FileField(null=True)
+    available=models.BooleanField(default=False)
     def __str__(self):
         return self.name
 class Type(models.Model):
@@ -56,8 +53,9 @@ class bikes(models.Model):
 
     def __str__(self):
         return self.name
-
-
-
-
-
+class order(models.Model):
+    user=models.ForeignKey(reg_tbl,on_delete=models.CASCADE)
+    bike=models.ForeignKey(bikes,on_delete=models.CASCADE)
+    status=models.CharField(max_length=20,null=True)
+    date_added=models.DateTimeField()
+        

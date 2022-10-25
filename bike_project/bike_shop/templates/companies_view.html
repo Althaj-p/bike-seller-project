@@ -15,12 +15,12 @@
             <h1 class="mt-2">{{company_name.name}} Bikes</h1><hr>
             <div class="row">
                 {% for i in bikes %}
-                <div class="col-md-3">
+                <div class="col-md-3 mb-3">
                     <div class="card">
                         <a  style="text-decoration:none"href="{% url 'bike_view' company_name.slug i.slug %}">
                         <div class="card-body">
                             <div class="category-image">
-                                <img src="{{i.image.url}}"alt="category image"class="w-100"/>
+                                <img src="{{i.image.url}}"alt="category image"class="w-100"style="height: 170px;"/>
                             </div>
                             <h4 class="text-center mt-2">{{i.name}}</h4>
                             <p class="text-center"><b>price: {{i.price}} Rs</b></p>

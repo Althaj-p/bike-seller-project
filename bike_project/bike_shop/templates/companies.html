@@ -13,12 +13,12 @@
             <h1 class="mt-2">Available Companies</h1><hr>
             <div class="row">
                 {% for i in companies %}
-                <div class="col-md-3">
+                <div class="col-md-3 mb-3">
                     <div class="card">
                         <a href="{% url 'companiesview' i.slug %}">
                         <div class="card-body">
                             <div class="category-image">
-                                <img src="{{i.logo.url}}"alt="category image"class="w-100"/>
+                                <img src="{{i.logo.url}}"alt="category image"class="w-100 "style="height: 170px;"/>
                             </div>
                             <h4 class="text-center mt-2">{{i.name}}</h4>
                         </div>

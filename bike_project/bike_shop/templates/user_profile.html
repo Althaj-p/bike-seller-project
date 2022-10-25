@@ -1,0 +1,49 @@
+{% load static %}
+{% include 'base.html' %}
+<div class="container mt-3">
+    <form >
+        {% csrf_token %}
+        <div class="row">
+            <div class="col-md-6">
+                <label class="form-control font-weight-bold">Full Name</label>
+            </div>
+            <div class="col-md-6">
+                <label class="form-control font-weight-bold">{{customer.user.first_name}} {{customer.user.last_name}}</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <label class="form-control font-weight-bold">Email</label>
+            </div>
+            <div class="col-md-6">
+                <label class="form-control font-weight-bold">{{customer.user.username}}</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <label class="form-control font-weight-bold">User name</label>
+            </div>
+            <div class="col-md-6">
+                <label class="form-control font-weight-bold">{{customer.user_name}}</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <label class="form-control font-weight-bold">Mobile</label>
+            </div>
+            <div class="col-md-6">
+                <label class="form-control font-weight-bold">{{customer.mobile}}</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <label class="form-control font-weight-bold">Location</label>
+            </div>
+            <div class="col-md-6">
+                <label class="form-control font-weight-bold">{{customer.location}}</label>
+            </div>
+        </div>
+        <a href="{% url 'edit_user' %}"class="btn btn-success">Edit user profile</a>
+    </form>
+
+</div>

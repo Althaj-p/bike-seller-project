@@ -1,0 +1,58 @@
+{% load static %}
+{% include 'base.html' %}
+<div class="container mt-3">
+    <form method="post"enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="row">
+            <div class="col-md-6">
+                <label class="form-control font-weight-bold">First Name</label>
+            </div>
+            <div class="col-md-6">
+                <input type="text" class="form-control font-weight-bold"value="{{customer.user.first_name}}"name="fname" ><i class="fa fa-pencil"style="position: absolute;right:30px;top: 12px;z-index:9999999"></i>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <label class="form-control font-weight-bold">Last Name</label>
+            </div>
+            <div class="col-md-6">
+                <input type="text" class="form-control font-weight-bold"value="{{customer.user.last_name}}"name="lname" ><i class="fa fa-pencil"style="position: absolute;right:30px;top: 12px;z-index:9999999"></i>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6">
+                <label class="form-control font-weight-bold">Email</label>
+            </div>
+            <div class="col-md-6">
+                <input type="text" class="form-control font-weight-bold"value="{{customer.user.username}}"name="email"><i class="fa fa-pencil"style="position: absolute;right:30px;top: 12px;z-index:9999999"></i>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <label class="form-control font-weight-bold">User name</label>
+            </div>
+            <div class="col-md-6">
+                <input type="text" class="form-control font-weight-bold"value="{{customer.user_name}}"name="username"><i class="fa fa-pencil"style="position: absolute;right:30px;top: 12px;z-index:9999999"></i>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <label class="form-control font-weight-bold">Mobile</label>
+            </div>
+            <div class="col-md-6">
+                <input type="text" class="form-control font-weight-bold"value="{{customer.mobile}}"name="mobile"><i class="fa fa-pencil"style="position: absolute;right:30px;top: 12px;z-index:9999999"></i>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <label class="form-control font-weight-bold">Location</label>
+            </div>
+            <div class="col-md-6">
+                <input type="text" class="form-control font-weight-bold"value="{{customer.location}}"name="location"><i class="fa fa-pencil"style="position: absolute;right:30px;top: 12px;z-index:9999999"></i>
+            </div>
+        </div>
+        <input type="submit"value="submit" class="btn btn-success">
+    </form>
+
+</div>

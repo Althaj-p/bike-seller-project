@@ -1,0 +1,31 @@
+{% load static %}
+{% block body %}
+
+{% include 'admin_navigation.html' %}
+
+<form class="container mt-5" method="post">
+    {% csrf_token %}
+    <label><b>Full Name</b></label>
+    <input type="text"class="form-control"name="uname"value="{{data.user.user.first_name}}  {{data.user.user.last_name}} ">
+    <label><b>Status</b></label>
+    <select  class="form-control"name="status">
+        <option value="Accepted">Accept</option>
+        <option value="Rejected">Reject</option>
+    </select>
+    <input type="submit"class="btn btn-primary mt-2">
+</form>
+{% ifequal error "no" %}
+<script>
+    alert("status changed successfully ")
+    window.location=('{% url 'admin_order' %}')
+</script>
+{% endifequal %}
+{% ifequal error "yes" %}
+<script>
+    alert("something went wrong")
+</script>
+{% endifequal %}
+
+
+
+{% endblock %}

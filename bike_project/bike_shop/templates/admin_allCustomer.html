@@ -1,0 +1,30 @@
+{% include 'admin_navigation.html' %}
+<div class="container mt-3">
+    <table class="table border border-secondary shadow-lg">
+        <thead style="color:blueviolet ;font-weight:bold;background-color:yellow;">
+            <tr>
+                <td>Sr no</td>
+                <td>customer Name</td>
+                <td>User Name</td>
+                <td>Email</td>
+                <td>Contact</td>
+                <td>Location</td>
+                <td>Action</td>
+
+            </tr>
+        </thead>
+        <tbody >
+            {% for i in data %}
+            <tr>
+                <td>{{forloop.counter}}</td>
+                <td>{{i.user.first_name}} {{i.user.last_name}}</td>
+                <td>{{i.user_name}}</td>
+                <td>{{i.user.username}}</td>
+                <td>{{i.mobile}}</td>
+                <td>{{i.location}}</td>
+                <td><a href="{% url 'admin_deleteCustomer' i.user.id %} "class="btn btn-danger btn-sm" onclick="return confirm('Are you sure to delete?')">Delete</a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
