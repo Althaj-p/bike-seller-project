@@ -1,0 +1,28 @@
+{
+	"folders": [
+		{
+			"path": "../../../../Desktop/ecommerce"
+		},
+		{
+			"path": "../../../../../../Ecommerce"
+		},
+		{
+			"path": "../../../../../../job portal"
+		},
+		{
+			"path": "../../../../vscode projects/toy_store"
+		},
+		{
+			"path": "../../.."
+		},
+		{
+			"path": "../../../../vscode projects/workout"
+		},
+		{
+			"path": "../../../../rest"
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "workout"
+	}
+}
